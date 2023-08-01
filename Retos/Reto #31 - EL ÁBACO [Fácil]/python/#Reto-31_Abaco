@@ -1,0 +1,47 @@
+
+"""           RETO 31: EL ABACO
+* Crea una función que sea capaz de leer el número representado por el ábaco.
+ * - El ábaco se representa por un array con 7 elementos.
+ * - Cada elemento tendrá 9 "O" (aunque habitualmente tiene 10 para realizar
+ *   operaciones) para las cuentas y una secuencia de "---" para el alambre.
+ * - El primer elemento del array representa los millones, y el último las unidades.
+ * - El número en cada elemento se representa por las cuentas que están a
+ *   la izquierda del alambre.
+ *
+ * Ejemplo de array y resultado:
+ * ["O---OOOOOOOO",
+ *  "OOO---OOOOOO",
+ *  "---OOOOOOOOO",
+ *  "OO---OOOOOOO",
+ *  "OOOOOOO---OO",
+ *  "OOOOOOOOO---",
+ *  "---OOOOOOOOO"]
+ *  
+ *  Resultado: 1.302.790"""
+
+def numero_representado_abaco():
+    numero=[]
+    abaco=[
+    "O---OOOOOOOO",
+    "OOO---OOOOOO",
+    "---OOOOOOOOO",
+    "OO---OOOOOOO",
+    "OOOOOOO---OO",
+    "OOOOOOOOO---",
+    "---OOOOOOOOO"
+    ]
+    for fila in abaco:
+        conteo=0
+        for j in fila:
+            if j=="O":      
+                conteo+=1
+            else:
+                numero.append(conteo)
+                break
+    numero_str=[str(k) for k in numero]
+    numero_final="".join(numero_str)
+    numero_final=int(numero_final)
+    numero_formateado = f"{numero_final:,}".replace(",", ".")
+    print(numero_formateado)  
+    
+numero_representado_abaco()
